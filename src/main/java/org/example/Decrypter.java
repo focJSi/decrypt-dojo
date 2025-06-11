@@ -25,6 +25,8 @@ public class Decrypter {
 			Character translater = DECRYPT_MAP.get(c);
 			if (translater != null) {
 				result.append(translater);
+			} else {
+				throw new IllegalArgumentException("No translation for character " + c);
 			}
 		}
 		return result.toString();
