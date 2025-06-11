@@ -31,4 +31,8 @@ public class Decrypter {
 		}
 		return result.toString();
 	}
+
+	public String encrypt(String deprypted) {
+		return null;
+	}
 }

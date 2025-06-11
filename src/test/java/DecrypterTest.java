@@ -24,4 +24,13 @@ public class DecrypterTest {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> decrypter.decrypt(encryped));
 	}
 
+	@Test
+	void testEncrypt() {
+		String encryped = "&£aad ldga(";
+		String decrypted = "hello world";
+
+		Decrypter decrypter = new Decrypter();
+		Assertions.assertEquals(encryped, decrypter.encrypt(decrypted));
+	}
+
 }
