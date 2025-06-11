@@ -22,22 +22,17 @@ public class Decrypter {
 	}
 
 	public String decrypt(String encryped) {
-		StringBuilder result = new StringBuilder();
-		for (char c : encryped.toCharArray()) {
-			Character translater = DECRYPT_MAP.get(c);
-			if (translater != null) {
-				result.append(translater);
-			} else {
-				throw new IllegalArgumentException("No translation for character " + c);
-			}
-		}
-		return result.toString();
+		return this.translate(encryped, DECRYPT_MAP);
 	}
 
-	public String encrypt(String deprypted) {
+	public String encrypt(String decrypted) {
+		return this.translate(decrypted, ENCRYPT_MAP);
+	}
+
+	private String translate(String input, Map<Character, Character> map) {
 		StringBuilder result = new StringBuilder();
-		for (char c : deprypted.toCharArray()) {
-			Character translater = ENCRYPT_MAP.get(c);
+		for (char c : input.toCharArray()) {
+			Character translater = map.get(c);
 			if (translater != null) {
 				result.append(translater);
 			} else {
