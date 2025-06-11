@@ -15,4 +15,13 @@ public class DecrypterTest {
 		Decrypter decrypter = new Decrypter();
 		Assertions.assertEquals(decrypted, decrypter.decrypt(encryped));
 	}
+
+	@Test
+	void testDecryptUnknownChar() {
+		String encryped = "?!";
+
+		Decrypter decrypter = new Decrypter();
+		Assertions.assertThrows(IllegalArgumentException.class, () -> decrypter.decrypt(encryped));
+	}
+
 }
